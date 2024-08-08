@@ -32,7 +32,7 @@ Install the necessary npm packages:
 npm install
 ```
 
-3. Set Up MongoDB
+### 3. Set Up MongoDB
 Make sure your MongoDB server is running. If you are using a local instance, the default connection string is:
 ```bash
 mongodb://localhost:27017/crud-api
@@ -40,7 +40,7 @@ mongodb://localhost:27017/crud-api
 
 If you're using MongoDB Atlas, update the connection string in server.js with your credentials.
 
-4. Run the Server
+### 4. Run the Server
 Start the server with the following command:
 
 ```bash
