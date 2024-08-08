@@ -1,4 +1,29 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+// Initialize the app
+const app = express();
+
+// Middleware
+app.use(bodyParser.json());
+
+// MongoDB Connection
+mongoose.connect('mongodb://localhost:27017/crud-api', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+});
+
+// Check for successful connection
+mongoose.connection.once('open', () => {
+    console.log('Connected to MongoDB');
+});
+
+// Define the Book model
 const Book = require('./models/Book');
+
+// Routes
 
 // Create a new book
 app.post('/books', async (req, res) => {
@@ -52,4 +77,15 @@ app.delete('/books/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
+});
+
+// Simple route for testing
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
