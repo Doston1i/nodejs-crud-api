@@ -48,7 +48,7 @@ node server.js
 ```
 By default, the server runs on port 3000. You can access the API at http://localhost:3000.
 
-API Endpoints
+## API Endpoints
 Create a new book
 POST /books
 
